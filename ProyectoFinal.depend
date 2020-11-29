@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1606683690 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\main.cpp
+	<iostream>
+	<string>
+	"cnodo.h"
+	"cCamino.h"
+	"tablahash.h"
+	"tablaHashCaminos.h"
+
+1606533745 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cnodo.h
+	"cPueblo.h"
+	"cCamino.h"
+
+1606679906 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cpueblo.h
+	<string>
+	"cserializable.h"
+
+1603674687 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cserializable.h
+	<fstream>
+
+1606685363 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\tablahash.h
+	"clista.h"
+	"cserializable.h"
+	"CPueblo.h"
+	<string>
+	"tablaHashCaminos.h"
+
+1606685746 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\clista.h
+	"cnodo.h"
+	"citerador.h"
+	"cserializable.h"
+	"cCamino.h"
+	"CPueblo.h"
+
+1606595215 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\citerador.h
+	"cnodo.h"
+
+1606595282 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\citerador.cpp
+	"citerador.h"
+
+1606685745 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\clista.cpp
+	"clista.h"
+	<iostream>
+
+1606533248 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cnodo.cpp
+	"cnodo.h"
+
+1606680051 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cpueblo.cpp
+	"CPueblo.h"
+	<iostream>
+
+1606524444 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\tablahash.cpp
+	"tablahash.h"
+	<iostream>
+
+1606684499 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\ccamino.cpp
+	"cCamino.h"
+	<iostream>
+
+1606685085 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\ccamino.h
+	"CPueblo.h"
+	"cserializable.h"
+
+1606685756 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\tablahashcaminos.h
+	"clista.h"
+	"cserializable.h"
+	"cCamino.h"
+	<string>
+
+1606523525 c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cobjeto.h
+	<iostream>
+	<string>
+	"cserializable.h"
+	"CPueblo.h"
+
+1606520834 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\cobjeto.cpp
+	"cobjeto.h"
+	"clista.h"
+	"tablahash.h"
+	"tablaHashCaminos.h"
+	"CPueblo.h"
+	"cCamino.h"
+
+1606685382 source:c:\users\eduardo gtz\documents\1- trabajos uni\5 semestre\seminario estructuras 2\proyectofinal\tablahashcaminos.cpp
+	"tablaHashCaminos.h"
+	<iostream>
+
