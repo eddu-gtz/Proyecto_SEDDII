@@ -50,9 +50,9 @@ void CIterador::operator--()
     pActual = pActual->pAnt;
 }
 
-CPueblo*& CIterador::operator*()
+CCamino*& CIterador::operator*()
 {
-    return pActual->NodoPueblo;
+    return pActual->CaminoPueblo;
 }
 
 ///Operador Posfijo

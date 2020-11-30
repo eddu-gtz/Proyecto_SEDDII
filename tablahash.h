@@ -6,8 +6,6 @@
 #include "CPueblo.h"
 #include <string>
 
-#include "tablaHashCaminos.h"
-
 #define CLSID_TABLA 1000
 
 class TablaHash : public CSerializable{
@@ -28,7 +26,6 @@ public:
 
     virtual void Salvar(fstream& );
     virtual void Cargar(fstream& );
-    void CargarCamino(fstream& ,TablaHashCaminos& );
     virtual int GetCLSID();
 
 };

@@ -25,6 +25,10 @@ void CCamino::Imprimir()
 
 }
 
+void CCamino::setPeso(int pes){
+    peso = pes;
+}
+
 void CCamino::Salvar(fstream& out){
     out<<GetCLSID()<<endl;
     origen->Salvar(out);
@@ -34,32 +38,10 @@ void CCamino::Salvar(fstream& out){
 
 void CCamino::Cargar(fstream& in ){
     int CLSID;
-    int satisfaccion;
-    int costo;
 
     in>>CLSID;
-    /*string nom, nombre, estado;
-    getline(in, nom);
-    getline(in, nombre);
-    getline(in, estado);
-    in>>satisfaccion;
-    in>>costo;*/
-    //CPueblo* pueblito = new CPueblo;
-
-    //origen = hashpueblos.Buscar(nombre, estado);
-
-
     origen->Cargar(in);
     in>>CLSID;
-
-    /*getline(in, nom);
-    getline(in, nombre);
-    getline(in, estado);
-    in>>satisfaccion;
-    in>>costo;*/
-
-    //destino = hashpueblos.Buscar(nombre, estado);
-
     destino->Cargar(in);
     in>>peso;
 }
@@ -68,4 +50,10 @@ void CCamino::Cargar(fstream& in ){
 int CCamino::GetCLSID(){
     return CLSID_CAMINO;
 }
+
+CPueblo* CCamino::getDestino()
+{
+    return destino;
+}
+
 

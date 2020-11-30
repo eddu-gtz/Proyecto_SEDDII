@@ -39,6 +39,8 @@
 		<Unit filename="citerador.h" />
 		<Unit filename="clista.cpp" />
 		<Unit filename="clista.h" />
+		<Unit filename="clistaCamino.cpp" />
+		<Unit filename="clistaCamino.h" />
 		<Unit filename="cnodo.cpp" />
 		<Unit filename="cnodo.h" />
 		<Unit filename="cpueblo.cpp" />

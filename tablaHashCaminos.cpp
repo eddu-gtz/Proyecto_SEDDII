@@ -6,10 +6,10 @@ using namespace std;
 TablaHashCaminos::TablaHashCaminos(){
     longArreglo = 41;
     for (int i(0); i < longArreglo; i++){
-        Arreglo[i] = new CLista;
+        Arreglo[i] = new CListaCamino;
     }
 }
-
+/*
 ///FUNCION PROPIA
 int TablaHashCaminos::FnHash(string nombreO, string estadoO, string nombreD, string estadoD)
 {
@@ -31,6 +31,28 @@ int TablaHashCaminos::FnHash(string nombreO, string estadoO, string nombreD, str
     valorHash += (int)estadoD[0];
     valorHash += (int)estadoD[1];
 
+
+    //Se obtiene el modulo para entrar en el rango de elementos del arreglo
+    int val = valorHash % longArreglo;
+
+	return  val;
+}*/
+
+///FUNCION PROPIA
+int TablaHashCaminos::FnHash(string nombreO, string estadoO)
+{
+    //Recibe el nombre del pueblo y el estado
+    unsigned long valorHash=0;
+    int seed = 131;
+
+    //Funcion de complejidad constante:
+    //ValorHash almacena el valor calculado con la semilla o pivote mas el valor ascii de cada letra
+
+    valorHash += (valorHash * seed) + (int)nombreO[0]; //M = 77
+    valorHash += (valorHash * seed) + (int)nombreO[1]; //a = 97
+
+    valorHash += (valorHash * seed) + (int)estadoO[0]; //J = 74
+    valorHash += (valorHash * seed) + (int)estadoO[1]; //a = 97
 
     //Se obtiene el modulo para entrar en el rango de elementos del arreglo
     int val = valorHash % longArreglo;
@@ -97,12 +119,14 @@ int TablaHashCaminos::FnHash(string clave, string estado)
 
 void TablaHashCaminos::Insertar(CCamino* elemento)
 {
-    int pos = FnHash(elemento->origen->nombre,
+    /*int pos = FnHash(elemento->origen->nombre,
                      elemento->origen->estado,
                      elemento->destino->nombre,
-                     elemento->destino->estado );
+                     elemento->destino->estado );*/
 
-    CLista* lista = new CLista;
+    int pos = FnHash(elemento->origen->nombre, elemento->origen->estado );
+
+    CListaCamino* lista = new CListaCamino;
 
     lista = Arreglo[pos];
 
@@ -110,11 +134,23 @@ void TablaHashCaminos::Insertar(CCamino* elemento)
 
 }
 
+CListaCamino* TablaHashCaminos::BuscarOrigen(string nombre, string estado)
+{
+    int pos = FnHash(nombre, estado);
+
+    CListaCamino* lista = new CListaCamino();
+
+    lista = Arreglo[pos];
+
+    return lista->buscarOrigen(nombre, estado);
+
+}
+
 CCamino* TablaHashCaminos::Buscar(string nombre, string estado, string nombreD, string estadoD)
 {
-    int pos = FnHash(nombre, estado, nombreD, estadoD);
+    int pos = FnHash(nombre, estado);
 
-    CLista* lista = new CLista();
+    CListaCamino* lista = new CListaCamino();
 
     lista = Arreglo[pos];
 
@@ -124,9 +160,9 @@ CCamino* TablaHashCaminos::Buscar(string nombre, string estado, string nombreD, 
 
 CCamino* TablaHashCaminos::Eliminar(string nombre, string estado, string nombreD, string estadoD)
 {
-    int pos = FnHash(nombre, estado, nombreD, estadoD);
+    int pos = FnHash(nombre, estado);
 
-    CLista* lista = new CLista();
+    CListaCamino* lista = new CListaCamino();
 
     lista = Arreglo[pos];
 
@@ -150,7 +186,7 @@ void TablaHashCaminos::Salvar(fstream& out)
     for(int i(0); i < longArreglo; i++){
         if(!Arreglo[i]->isEmpty()){
             out<<i<<endl;
-            Arreglo[i]->SalvarCamino(out);
+            Arreglo[i]->Salvar(out);
         }
     }
 }
@@ -167,7 +203,7 @@ void TablaHashCaminos::Cargar(fstream& in)
         if(in.eof())
             break;
 
-        CLista* pLista = new CLista();
+        CListaCamino* pLista = new CListaCamino();
 
         if(CLSID != CLSID_LISTA){
             cout<<" No se como cargar esto"<<endl;
@@ -175,6 +211,32 @@ void TablaHashCaminos::Cargar(fstream& in)
         }
         else{
             pLista->Cargar(in);
+
+            Arreglo[pos] = pLista;
+        }
+    }
+}
+
+void TablaHashCaminos::CargarCamino(fstream& in, TablaHash& tabla)
+{
+    int CLSID(0);
+    int pos(0);
+
+    while(!in.eof()){
+        in>>pos;
+        in>>CLSID;
+
+        if(in.eof())
+            break;
+
+        CListaCamino* pLista = new CListaCamino();
+
+        if(CLSID != CLSID_LISTA){
+            cout<<" No se como cargar esto"<<endl;
+            break;
+        }
+        else{
+            pLista->CargarCamino(in, tabla);
 
             Arreglo[pos] = pLista;
         }

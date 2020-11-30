@@ -29,12 +29,6 @@ void CLista::insertarAlFinal(CPueblo* ndato)
     Final.pAnt->insertarAdelante(ndato);
 }
 
-void CLista::insertarAlFinal(CCamino* ndato)
-{
-    //Regresar uno para poder insertar al final
-    Final.pAnt->insertarAdelante(ndato);
-}
-
 CPueblo* CLista::eliminarAlInicio()
 {
     return Inicio.eliminarAdelante();
@@ -44,12 +38,6 @@ CPueblo* CLista::eliminarAlFinal()
 {
     //Regresar dos posiciones para poder eliminar al final
     return Final.pAnt->pAnt->eliminarAdelante();
-}
-
-CCamino* CLista::eliminarAlFinalCamino()
-{
-    //Regresar dos posiciones para poder eliminar al final
-    return Final.pAnt->pAnt->eliminarAdelanteCamino();
 }
 
 int CLista::Size()
@@ -103,16 +91,6 @@ void CLista::Imprimir()
     }
 }
 
-void CLista::ImprimirCamino()
-{
-    CIterador it;
-    for(it = Begin(); it != End(); it++){
-        it.pActual->CaminoPueblo->Imprimir();
-        cout<<endl<<endl;
-    }
-}
-
-
 CPueblo* CLista::buscarPueblo(string buscado, string estado){
 
     CIterador it;
@@ -148,46 +126,6 @@ CPueblo* CLista::eliminarPueblo(string buscado, string estado){
     return 0;
 }
 
-CCamino* CLista::buscarCamino(string nombre, string estado, string nombreD, string estadoD){
-
-    CIterador it;
-
-    if(!isEmpty())
-    {
-        for(it = Begin(); it != End(); it++)
-        {
-            if((it.pActual->CaminoPueblo->origen->nombre == nombre) && (it.pActual->CaminoPueblo->origen->estado == estado))
-            {
-                if((it.pActual->CaminoPueblo->destino->nombre == nombreD) && (it.pActual->CaminoPueblo->destino->estado == estadoD))
-                {
-                    return  it.pActual->CaminoPueblo;
-                }
-            }
-        }
-    }
-    return 0;
-}
-
-CCamino* CLista::eliminarCamino(string nombre, string estado, string nombreD, string estadoD){
-
-    CIterador it;
-
-    if(!isEmpty())
-    {
-        for(it = Begin(); it != End(); it++)
-        {
-            if((it.pActual->CaminoPueblo->origen->nombre == nombre) && (it.pActual->CaminoPueblo->origen->estado == estado))
-            {
-                if((it.pActual->CaminoPueblo->destino->nombre == nombreD) && (it.pActual->CaminoPueblo->destino->estado == estadoD))
-                {
-                    return  it.EliminarSiguienteCamino();
-                }
-            }
-        }
-    }
-    return 0;
-}
-
 void CLista::Salvar(fstream& out)
 {
     CIterador it;
@@ -196,17 +134,6 @@ void CLista::Salvar(fstream& out)
     out<<Size()<<endl;
     for(it = Begin(); it != End(); it++){
         it.pActual->NodoPueblo->Salvar(out);
-    }
-}
-
-void CLista::SalvarCamino(fstream& out)
-{
-    CIterador it;
-
-    out<<GetCLSID()<<endl;
-    out<<Size()<<endl;
-    for(it = Begin(); it != End(); it++){
-        it.pActual->CaminoPueblo->Salvar(out);
     }
 }
 
@@ -225,15 +152,13 @@ void CLista::Cargar(fstream& in)
                 CPueblo* pObj = new CPueblo();
                 pObj->Cargar(in);
                 insertarAlFinal(pObj);
-            }
                 break;
+            }
 
             case CLSID_CAMINO:{
-                CCamino* pObj2 = new CCamino();
-                pObj2->Cargar(in);
-                insertarAlFinal(pObj2);
-            }
+                cout<<" Hubo un error al cargar | Lista"<<endl;
                 break;
+            }
 
             default:
                 cout<<" Hubo un error al cargar | Lista"<<endl;

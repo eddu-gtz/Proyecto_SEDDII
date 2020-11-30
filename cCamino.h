@@ -14,6 +14,7 @@ private:
 
     friend class TablaHashCaminos;
     friend class CLista;
+    friend class CListaCamino;
 
 public:
     CCamino();
@@ -24,6 +25,10 @@ public:
     void Salvar(fstream& );
     void Cargar(fstream& );
     int GetCLSID( );
+
+    void setPeso(int );
+
+    CPueblo* getDestino();
 
 };
 

@@ -10,6 +10,7 @@ private:
 public:
 
     friend class CLista;
+    friend class CListaCamino;
 
     void InsertarAdelante(CPueblo* );
     CPueblo* EliminarSiguiente();
@@ -21,7 +22,7 @@ public:
     bool operator != (CIterador& otro);
     void operator ++ ();
     void operator -- ();
-    CPueblo*& operator * ();
+    CCamino*& operator * ();
 
     void operator ++(int);
     void operator --(int);

@@ -7,6 +7,7 @@
 class CNodo{
 private:
     friend class CLista;
+    friend class CListaCamino;
     friend class CIterador;
 
     CNodo* pSig = nullptr;

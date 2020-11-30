@@ -61,3 +61,11 @@ void CPueblo::setSatisfaccion(int sas){
 void CPueblo::setCosto(int cos){
     costo = cos;
 }
+
+string CPueblo::getNombre(){
+    return nombre;
+}
+
+string CPueblo::getEstado(){
+    return estado;
+}

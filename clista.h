@@ -25,17 +25,15 @@ public:
 
     void insertarAlInicio(CPueblo* );
     void insertarAlFinal(CPueblo* );
-    void insertarAlFinal(CCamino* );
+
     CPueblo* eliminarAlInicio();
     CPueblo* eliminarAlFinal();
-    CCamino* eliminarAlFinalCamino();
 
     int Size();
     bool isEmpty();
     bool isFull();
 
     void Imprimir();
-    void ImprimirCamino();
     void ImprimirTodo();
 
     CIterador& Begin();
@@ -44,13 +42,8 @@ public:
     CPueblo* buscarPueblo(std::string, std::string);
     CPueblo* eliminarPueblo(std::string, std::string);
 
-    CCamino* buscarCamino(std::string, std::string, std::string, std::string);
-    CCamino* eliminarCamino(std::string, std::string, std::string, std::string);
-
     virtual void Salvar(fstream& );
-    virtual void SalvarCamino(fstream& );
     virtual void Cargar(fstream& );
-    //void CargarCamino(fstream& , TablaHashCaminos&);
     virtual int GetCLSID();
 };
 

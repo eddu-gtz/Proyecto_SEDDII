@@ -176,32 +176,6 @@ void TablaHash::Cargar(fstream& in)
 }
 
 
-void TablaHash::CargarCamino(fstream& in, TablaHashCaminos& )
-{
-    int CLSID(0);
-    int pos(0);
-
-    while(!in.eof()){
-        in>>pos;
-        in>>CLSID;
-
-        if(in.eof())
-            break;
-
-        CLista* pLista = new CLista();
-
-        if(CLSID != CLSID_LISTA){
-            cout<<" No se como cargar esto"<<endl;
-            break;
-        }
-        else{
-            pLista->Cargar(in);
-
-            Arreglo[pos] = pLista;
-        }
-    }
-}
-
 int TablaHash::GetCLSID()
 {
     return CLSID_TABLA;

@@ -18,6 +18,7 @@ private:
     friend class TablaHashCaminos;
     friend class CCamino;
     friend class CLista;
+    friend class CListaCamino;
 
 public:
     CPueblo();
@@ -33,6 +34,10 @@ public:
     void setEstado(std::string);
     void setSatisfaccion(int);
     void setCosto(int);
+
+    std::string getNombre();
+    std::string getEstado();
+
 };
 
 #endif // CPUEBLO_H_INCLUDED

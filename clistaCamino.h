@@ -6,8 +6,7 @@
 #include "cserializable.h"
 #include "cCamino.h"
 
-
-#include "tablaHashCaminos.h"
+#include "tablahash.h"
 
 #define CLSID_LISTA 500
 
@@ -21,9 +20,8 @@ private:
 
 public:
 
-
-    CLista();
-    ~CLista();
+    CListaCamino();
+    ~CListaCamino();
 
     void insertarAlFinal(CCamino* );
     CCamino* eliminarAlFinalCamino();
@@ -32,21 +30,20 @@ public:
     bool isEmpty();
     bool isFull();
 
-    void Imprimir();
     void ImprimirCamino();
     void ImprimirTodo();
 
     CIterador& Begin();
     CIterador& End();
 
+    CListaCamino* buscarOrigen(std::string, std::string);
 
     CCamino* buscarCamino(std::string, std::string, std::string, std::string);
     CCamino* eliminarCamino(std::string, std::string, std::string, std::string);
 
     virtual void Salvar(fstream& );
-    virtual void SalvarCamino(fstream& );
     virtual void Cargar(fstream& );
-    void CargarCamino(fstream& , TablaHashCaminos&);
+    void CargarCamino(fstream& , TablaHash& );
     virtual int GetCLSID();
 };
 
